@@ -1,0 +1,22 @@
+package com.thttp.banco_digital;
+
+import com.thttp.banco_digital.model.ContaCorrente;
+import com.thttp.banco_digital.model.ContaPoupanca;
+
+public class BancoDigitalApp {
+    public static void main(String[] args) {
+        ContaCorrente contaCorrente = new ContaCorrente(1, "João", 500.0);
+        ContaPoupanca contaPoupanca = new ContaPoupanca(2, "Maria", 0.03);
+        
+        contaCorrente.depositar(1000.0);
+        contaPoupanca.depositar(500.0);
+        
+        contaCorrente.sacar(300.0);
+        contaPoupanca.aplicarRendimento();
+        
+        contaCorrente.transferir(contaPoupanca, 200.0);
+        
+        System.out.println("Saldo contaCorrente: " + contaCorrente.getSaldo());
+        System.out.println("Saldo contaPoupanca: " + contaPoupanca.getSaldo());
+    }
+}
